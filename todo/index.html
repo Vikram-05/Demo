@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Todo App</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <main class="todo-app-shell">
+        <section class="hero-card">
+            <div class="hero-header">
+                <div>
+                    <p class="eyebrow">Daily planner</p>
+                    <h1>Your task board</h1>
+                    <p class="hero-copy">Stay organized with tasks that save automatically in your browser. Add, sort, and complete work at your own pace.</p>
+                </div>
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">🌙</button>
+            </div>
+
+            <form class="todo-form" id="todoForm">
+                <div class="field-group">
+                    <label for="todoInput">Add a new task</label>
+                    <input id="todoInput" type="text" placeholder="e.g. Finish project proposal" autocomplete="off">
+                </div>
+
+                <div class="form-row">
+                    <div class="field-group small-field">
+                        <label for="dueDateInput">Due date</label>
+                        <input id="dueDateInput" type="date">
+                    </div>
+                    <div class="field-group small-field">
+                        <label for="priorityInput">Priority</label>
+                        <select id="priorityInput">
+                            <option value="low">Low</option>
+                            <option value="medium" selected>Medium</option>
+                            <option value="high">High</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-row actions-row">
+                    <button type="submit" class="btn-primary">Add Task</button>
+                    <button type="button" class="btn-secondary" id="clearCompletedBtn">Clear Completed</button>
+                </div>
+            </form>
+
+            <div class="toolbar">
+                <div class="search-group">
+                    <label for="searchInput">Search</label>
+                    <input id="searchInput" type="search" placeholder="Search tasks...">
+                </div>
+
+                <div class="filter-group">
+                    <button class="filter-btn active" data-filter="all">All</button>
+                    <button class="filter-btn" data-filter="active">Active</button>
+                    <button class="filter-btn" data-filter="completed">Completed</button>
+                </div>
+            </div>
+
+            <div class="sort-group">
+                <span>Sort by</span>
+                <select id="sortSelect">
+                    <option value="createdDesc">Newest</option>
+                    <option value="createdAsc">Oldest</option>
+                    <option value="dueAsc">Due date</option>
+                    <option value="priorityDesc">Priority</option>
+                </select>
+            </div>
+
+            <div class="status-panel">
+                <div id="taskCountText">No tasks yet. Add your first one.</div>
+                <button id="deleteAllBtn" class="link-button">Delete All</button>
+            </div>
+        </section>
+
+        <section class="task-list-card">
+            <ul class="task-list" id="taskList" aria-live="polite"></ul>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
